@@ -1,0 +1,20 @@
+To address the issues with `calc()`, ensure that all values used in the calculation are relative to a known and defined dimension.  Avoid nesting `calc()` excessively; break it down into smaller, more manageable calculations if necessary. Also ensure there are no syntax errors.
+
+Instead of directly subtracting from a percentage, consider using a more predictable approach. For example, if you need an element to be 50% of the parent's width minus 10px, you could achieve the same effect by creating another element within the parent to provide a margin or padding of 10px on each side, and setting the inner element to 50% width.
+
+Here's an example:
+
+```css
+.parent {
+  width: 300px;
+}
+.parentInner {
+  width: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+```
+
+For complex calculations, it is often cleaner and more maintainable to calculate the values in javascript and then apply the result using a CSS variable or inline style.  This improves readability and makes it easier to debug. 
+
+Always thoroughly test your CSS across different browsers and screen sizes to ensure your layout remains consistent.
